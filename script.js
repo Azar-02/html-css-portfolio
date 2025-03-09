@@ -1,11 +1,27 @@
-// Dark/Light Mode Toggle
+// Theme Toggle
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
 
+const themes = ['dark', 'light', 'ironman'];
+let currentThemeIndex = 0;
+
 themeToggle.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  themeToggle.querySelector('i').classList.toggle('fa-sun');
-  themeToggle.querySelector('i').classList.toggle('fa-moon');
+  // Remove all theme classes
+  body.classList.remove('light-mode', 'ironman-mode');
+
+  // Apply the next theme
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  const nextTheme = themes[currentThemeIndex];
+
+  if (nextTheme === 'light') {
+    body.classList.add('light-mode');
+  } else if (nextTheme === 'ironman') {
+    body.classList.add('ironman-mode');
+  }
+
+  // Update the toggle icon
+  const icons = ['fa-moon', 'fa-sun', 'fa-robot']; // Moon for dark, Sun for light, Robot for Ironman
+  themeToggle.querySelector('i').className = `fas ${icons[currentThemeIndex]}`;
 });
 
 // Hamburger Menu
@@ -16,7 +32,7 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Particle Animation
+// Particle Animation (Persistent Particles)
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -45,7 +61,13 @@ class Particle {
     this.x += this.velocity.x;
     this.y += this.velocity.y;
 
-    if (this.size > 0.2) this.size -= 0.1;
+    // Bounce particles off the edges
+    if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+      this.velocity.x = -this.velocity.x;
+    }
+    if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+      this.velocity.y = -this.velocity.y;
+    }
   }
 }
 
@@ -55,7 +77,7 @@ function init() {
     const size = Math.random() * 5 + 1;
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
-    const color = '#ff5722';
+    const color = '#ff5722'; // Ironman Red
     const velocity = {
       x: (Math.random() - 0.5) * 2,
       y: (Math.random() - 0.5) * 2,

@@ -13,6 +13,32 @@ body {
     color: #333;
   }
   
+  /* Ironman Theme Styles */
+  body.ironman-mode {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  body.ironman-mode .navbar {
+    background-color: #b11313; /* Ironman Red */
+  }
+  
+  body.ironman-mode .btn, body.ironman-mode .skills span, body.ironman-mode .contact-form button {
+    background-color: #b11313; /* Ironman Red */
+  }
+  
+  body.ironman-mode .btn:hover, body.ironman-mode .contact-form button:hover {
+    background-color: #ff8c42; /* Ironman Gold */
+  }
+  
+  body.ironman-mode .project-card {
+    background-color: #333;
+  }
+  
+  body.ironman-mode .project-card:hover {
+    background-color: #b11313; /* Ironman Red */
+  }
+  
   /* Header and Navbar */
   .header {
     background-color: #333;
@@ -150,7 +176,7 @@ body {
     background-color: #333;
     padding: 20px;
     border-radius: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
     animation: fadeInUp 1s ease-in-out;
   }
   
