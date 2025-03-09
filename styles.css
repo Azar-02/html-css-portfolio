@@ -180,6 +180,12 @@ body {
     animation: fadeInUp 1s ease-in-out;
   }
   
+  body.light-mode .project-card {
+    background-color: #fff;
+    color: #333; /* Ensure text is visible in light mode */
+    border: 1px solid #ddd; /* Add border for better visibility */
+  }
+  
   .project-card:hover {
     transform: translateY(-10px);
   }
@@ -207,8 +213,20 @@ body {
     color: #fff;
   }
   
+  body.light-mode .contact-form input,
+  body.light-mode .contact-form textarea {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
   .contact-form input::placeholder, .contact-form textarea::placeholder {
     color: #ccc;
+  }
+  
+  body.light-mode .contact-form input::placeholder,
+  body.light-mode .contact-form textarea::placeholder {
+    color: #888;
   }
   
   .contact-form button {
@@ -275,10 +293,6 @@ body {
     }
   }
   
-  .home-section, .about-section, .projects-section, .contact-section {
-    animation: fadeIn 1s ease-in-out;
-  }
-  
   /* Particle Animation */
   #particles {
     position: absolute;
@@ -317,4 +331,16 @@ body {
     .home-content p {
       font-size: 1.2rem;
     }
+  }
+  
+  /* Custom Font for Azar */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Pacifico&display=swap');
+  
+  .highlight-azar {
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    font-size: 4rem; /* Match the h1 size */
+    background: linear-gradient(45deg, #ff5722, #ffc107); /* Default gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
