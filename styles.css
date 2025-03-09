@@ -31,6 +31,7 @@ body {
   .navbar .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #ff5722;
   }
   
   .navbar .nav-links {
@@ -43,15 +44,30 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navbar .nav-links a:hover {
+    color: #ff5722;
   }
   
   .navbar .theme-toggle {
     cursor: pointer;
+    color: #fff;
+  }
+  
+  .navbar .theme-toggle:hover {
+    color: #ff5722;
   }
   
   .navbar .hamburger {
     display: none;
     cursor: pointer;
+    color: #fff;
+  }
+  
+  .navbar .hamburger:hover {
+    color: #ff5722;
   }
   
   /* Home Section */
@@ -68,11 +84,13 @@ body {
   .home-content h1 {
     font-size: 4rem;
     margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
   }
   
   .home-content p {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    animation: fadeInUp 1s ease-in-out;
   }
   
   .btn {
@@ -82,6 +100,7 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    animation: fadeIn 1s ease-in-out;
   }
   
   .btn:hover {
@@ -97,6 +116,7 @@ body {
   .about-content {
     max-width: 800px;
     margin: 0 auto;
+    animation: fadeIn 1s ease-in-out;
   }
   
   .skills {
@@ -111,6 +131,7 @@ body {
     padding: 10px 20px;
     background-color: #ff5722;
     border-radius: 5px;
+    animation: fadeIn 1s ease-in-out;
   }
   
   /* Projects Section */
@@ -130,6 +151,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s;
+    animation: fadeInUp 1s ease-in-out;
   }
   
   .project-card:hover {
@@ -148,12 +170,19 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    animation: fadeIn 1s ease-in-out;
   }
   
   .contact-form input, .contact-form textarea {
     padding: 10px;
     border: none;
     border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: #ccc;
   }
   
   .contact-form button {
@@ -163,6 +192,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
   
   .contact-form button:hover {
@@ -184,12 +214,39 @@ body {
     color: #fff;
     margin: 0 10px;
     font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .social-links a:hover {
+    color: #ff5722;
   }
   
   /* Animations */
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .home-section, .about-section, .projects-section, .contact-section {
